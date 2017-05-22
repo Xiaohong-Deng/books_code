@@ -1,0 +1,13 @@
+<h1>New Project</h1>
+<%= form_for(@project) do |f| %>
+  <p>
+    <!--label name can be the text of the field(Name) and the key in params(params[:name])-->
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+  <%= f.submit %>
+<% end %>
