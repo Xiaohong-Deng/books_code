@@ -1,0 +1,8 @@
+<!-- it will know it's a POST to ticket, you can find params[:project] and params[:ticket] -->
+<!-- in that request -->
+<%= simple_form_for([project, ticket]) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+<% end %>
