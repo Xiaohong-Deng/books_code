@@ -11,6 +11,17 @@
       class: "delete") %></li>
     </ul>
   </header>
+  <table class="attributes">
+    <tr>
+      <th>Author:</th>
+      <td><%= @ticket.author.email %></td>
+    </tr>
+    <tr>
+      <th>Created:</th>
+      <!-- time_ago_in_words is a method in ActionView -->
+      <td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
+    </tr>
+  </table>
   <!-- simple_form converts line breaks in description to <br> -->
   <%= simple_format(@ticket.description) %>
 </div>

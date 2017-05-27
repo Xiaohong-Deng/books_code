@@ -17,7 +17,17 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "projects";
+@import "tickets";
 @import "responsive";
+
+// this attributes block was supposed to be in "tickets.scss"
+// but the two @extend didn't work without importing "bootstrap"
+// to "tickets.scss". importing bootstrap once more there causes
+// testing run much slower. So I put them here
+#attributes {
+  @extend .table;
+  @extend .table-condensed;
+}
 
 .page-header {
   position: relative;
