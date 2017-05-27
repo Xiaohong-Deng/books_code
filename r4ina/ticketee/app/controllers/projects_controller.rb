@@ -5,25 +5,7 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-  def new
-    @project = Project.new
-  end
-
   def show
-  end
-
-  def create
-    @project = Project.new(project_params)
-    if @project.save
-      flash[:notice] = "Project has been created."
-      redirect_to @project
-    else
-      # render is not considered as another request
-      # because it doesn't require you to go through
-      # an action again
-      flash.now[:alert] = "Project has not been created."
-      render 'new'
-    end
   end
 
   def edit
@@ -37,13 +19,6 @@ class ProjectsController < ApplicationController
       flash[:alert] = "Project has not been updated."
       render "edit"
     end
-  end
-
-  def destroy
-    @project.destroy
-
-    flash[:notice] = "Project has been deleted."
-    redirect_to projects_path
   end
 
   private
