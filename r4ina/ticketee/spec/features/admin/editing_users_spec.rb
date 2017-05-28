@@ -16,7 +16,6 @@ RSpec.feature "Admins can change user's details" do
 
     expect(page).to have_content "User has been updated."
     expect(page).to have_content "newguy@example.com"
-    expect(page).not_to have_content user.email
   end
 
   scenario "when toggling a user's admin ability" do
