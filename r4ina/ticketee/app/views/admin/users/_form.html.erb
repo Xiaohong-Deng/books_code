@@ -1,0 +1,8 @@
+<!-- Symbol :admin here helps generating route admin_users_path -->
+<!-- it serves as a literal -->
+<%= simple_form_for [:admin, user] do |f| %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
