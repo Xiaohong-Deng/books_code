@@ -6,6 +6,10 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    # Pundit will check if the current_user is allowed
+    # to show @project, e.g. show.html.erb
+    # it uses a ProjectPolicy class to check for permission
+    authorize @project, :show?
   end
 
   def edit

@@ -6,6 +6,10 @@ RSpec.feature 'Users can delete tickets' do
   let(:ticket) { FactoryGirl.create(:ticket, project: project, author: author) }
 
   before do
+    login_as(author)
+    # in a single scenario calling project 10 time won't create
+    # 10 records in Project table, just 1
+    assign_role!(author, :viewer, project)
     visit project_ticket_path(project, ticket)
   end
 
