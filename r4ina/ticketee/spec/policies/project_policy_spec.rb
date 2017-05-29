@@ -35,6 +35,9 @@ describe ProjectPolicy do
     end
 
     it 'returns all projects for admins' do
+      # user.admin only set user in memory to admin, not
+      # user in db, but it's user in memory gets passed
+      # into policy_scope
       user.admin = true
       expect(subject).to include(project)
     end
@@ -76,9 +79,40 @@ describe ProjectPolicy do
     end
   end
 
-  # permissions :update? do
-  #   pending "add some examples to (or delete) #{__FILE__}"
-  # end
+  permissions :update? do
+    let(:user) { FactoryGirl.create :user }
+    let(:project) { FactoryGirl.create :project}
+
+    it 'blocks anonymous users' do
+      expect(subject).not_to permit(nil, project)
+    end
+
+    it 'doesnt allow viewers of the project' do
+      assign_role!(user, :viewer, project)
+      expect(subject).not_to permit(user, project)
+    end
+
+    it 'doesnt allow editors of the project' do
+      assign_role!(user, :editor, project)
+      expect(subject).not_to permit(user, project)
+    end
+
+    it 'allow managers of the project' do
+      assign_role!(user, :manager, project)
+      expect(subject).to permit(user, project)
+    end
+
+    it 'allow administrators' do
+      admin = FactoryGirl.create :user, :admin
+      expect(subject).to permit(admin, project)
+    end
+
+    it 'doesnt allow users assigned to other projects to' do
+      other_project = FactoryGirl.create :project
+      assign_role!(user, :manager, other_project)
+      expect(subject).not_to permit(user, project)
+    end
+  end
 
   # permissions :destroy? do
   #   pending "add some examples to (or delete) #{__FILE__}"
