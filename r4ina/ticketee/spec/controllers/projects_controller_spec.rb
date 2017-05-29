@@ -18,6 +18,7 @@ RSpec.describe ProjectsController, type: :controller do
 
     project = FactoryGirl.create(:project)
     # current_user returns nil, show? returns false
+    # NoAuthorizedError raised
     get :show, id: project
 
     expect(response).to redirect_to(root_path)

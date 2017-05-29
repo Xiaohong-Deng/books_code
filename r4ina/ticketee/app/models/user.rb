@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  # scope define a method which called on User, returns a subset of users table
   scope :excluding_archived, lambda { where(archived_at: nil) }
 
   def to_s

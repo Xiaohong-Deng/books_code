@@ -9,6 +9,13 @@ RSpec.feature 'Users can view projects' do
     assign_role!(user, :viewer, project)
   end
 
+  scenario 'unless they do not have permission' do
+    FactoryGirl.create(:project, name: "Hidden")
+
+    visit "/"
+    expect(page).not_to have_content "Hidden"
+  end
+
   scenario "with the project details" do
     # FactoryGirl looks for factory named :project in folder spec/factory
 
