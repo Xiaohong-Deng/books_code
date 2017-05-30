@@ -13,12 +13,11 @@ class ProjectPolicy < ApplicationPolicy
     # @user and @record
     # for example, @record could be Project
     # then Project must has_many :roles
-    user.try(:admin?) || record.roles.exists?(user_id: user)
+    user.try(:admin?) || record.has_member?(user)
     # user might be nil (not logged in)
   end
 
   def update?
-    user.try(:admin?) || record.roles.exists?(user_id: user,
-      role: 'manager')
+    user.try(:admin?) || record.has_manager?(user)
   end
 end

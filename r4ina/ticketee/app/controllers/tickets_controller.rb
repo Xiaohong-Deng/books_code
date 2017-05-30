@@ -3,15 +3,16 @@ class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   def new
-    # @project is not defined? tickets and build method are not defined?
-    # what's going on
     @ticket = @project.tickets.build
+
+    authorize @ticket, :create?
   end
 
   def create
     @ticket = @project.tickets.build(ticket_params)
     # current_user is a Devise method
     @ticket.author = current_user
+    authorize @ticket, :create?
 
     if @ticket.save
       flash[:notice] = "Ticket has been created."
