@@ -28,6 +28,17 @@
       <td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
     </tr>
   </table>
-  <!-- simple_form converts line breaks in description to <br> -->
+  <!-- simple_format converts line breaks in description to <br> -->
   <%= simple_format(@ticket.description) %>
+
+  <% if @ticket.attachment.present? %>
+    <h4>Attachment</h4>
+    <div class="attachment">
+      <p>
+      <!-- attachment is only a string, CarrierWave turns it to an object you can call methods on -->
+        <%= link_to(File.basename(@ticket.attachment.url), @ticket.attachment.url) %>
+        (<%= number_to_human_size(@ticket.attachment.size) %>)
+      </p>
+    </div>
+  <% end %>
 </div>

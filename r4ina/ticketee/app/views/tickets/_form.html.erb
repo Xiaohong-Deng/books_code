@@ -1,8 +1,11 @@
 <!-- it will know it's a POST to ticket, you can find params[:project] and params[:ticket] -->
 <!-- in that request -->
 <%= simple_form_for([project, ticket]) do |f| %>
+<!-- simple_form infers :name and :description are text_field -->
+<!-- but :attachment need to specify it's file field -->
   <%= f.input :name %>
   <%= f.input :description %>
+  <%= f.input :attachment, as: :file, label: "File" %>
 
   <%= f.button :submit, class: "btn-primary" %>
 <% end %>
