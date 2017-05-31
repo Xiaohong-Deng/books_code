@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
+    # show projects to those who are allowed to see them
+    # according to Role table
     @projects = policy_scope(Project)
   end
 
