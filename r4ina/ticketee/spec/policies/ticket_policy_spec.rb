@@ -14,6 +14,7 @@ describe TicketPolicy do
       it { should_not permit_action :show }
       it { should_not permit_action :create }
       it { should_not permit_action :update }
+      it { should_not permit_action :destroy }
     end
 
     context 'for viewers of the project' do
@@ -22,6 +23,7 @@ describe TicketPolicy do
       it { should permit_action :show }
       it { should_not permit_action :create }
       it { should_not permit_action :update }
+      it { should_not permit_action :destroy }
     end
 
     context 'for editors of the project' do
@@ -30,6 +32,7 @@ describe TicketPolicy do
       it { should permit_action :show }
       it { should permit_action :create }
       it { should_not permit_action :update }
+      it { should_not permit_action :destroy }
 
       context 'when the editor created the ticket' do
         # ticket is called before in editor context
@@ -47,6 +50,7 @@ describe TicketPolicy do
       it { should permit_action :show }
       it { should permit_action :create }
       it { should permit_action :update }
+      it { should permit_action :destroy }
     end
 
     context 'for manager of other projects' do
@@ -57,6 +61,7 @@ describe TicketPolicy do
       it { should_not permit_action :show }
       it { should_not permit_action :create }
       it { should_not permit_action :update }
+      it { should_not permit_action :destroy }
     end
 
     context 'for administrators' do
@@ -65,6 +70,7 @@ describe TicketPolicy do
       it { should permit_action :show }
       it { should permit_action :create }
       it { should permit_action :update }
+      it { should permit_action :destroy }
     end
   end
 end

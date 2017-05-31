@@ -9,7 +9,7 @@ RSpec.feature 'Users can delete tickets' do
     login_as(author)
     # in a single scenario calling project 10 time won't create
     # 10 records in Project table, just 1
-    assign_role!(author, :viewer, project)
+    assign_role!(author, :manager, project)
     visit project_ticket_path(project, ticket)
   end
 

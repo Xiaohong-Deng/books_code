@@ -22,6 +22,8 @@
   <h2>Tickets</h2>
   <ul class="actions">
     <!-- new Ticket is used to do the sanity check then gets tossed -->
+    <!-- policy instantiates an instance using ticket(with @project) and current_user -->
+    <!-- asking if current_user has permission to create a ticket which belongs to @project -->
     <% if policy(Ticket.new(project: @project)).create? %>
       <li>
         <%= link_to "New Ticket", new_project_ticket_path(@project), class: "new" %>
