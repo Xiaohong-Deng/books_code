@@ -31,14 +31,18 @@
   <!-- simple_format converts line breaks in description to <br> -->
   <%= simple_format(@ticket.description) %>
 
-  <% if @ticket.attachment.present? %>
-    <h4>Attachment</h4>
-    <div class="attachment">
-      <p>
-      <!-- attachment is only a string, CarrierWave turns it to an object you can call methods on -->
-        <%= link_to(File.basename(@ticket.attachment.url), @ticket.attachment.url) %>
-        (<%= number_to_human_size(@ticket.attachment.size) %>)
-      </p>
+  <% if @ticket.attachments.any? %>
+    <h4>Attachments</h4>
+    <div class="attachments">
+      <% @ticket.attachments.each do |attachment| %>
+        <p>
+        <!-- attachment.file is only a string, CarrierWave turns it to an object you can call methods on -->
+        <!-- blue link_to is given by Ruby on Rails snippets package installed through Package Control -->
+        <!-- currently it's installed through manually pulling from Github, so it's white now -->
+          <%= link_to File.basename(attachment.file.url), attachment.file.url %>,
+          (<%= number_to_human_size(attachment.file.size) %>)
+        </p>
+      <% end %>
     </div>
   <% end %>
 </div>
