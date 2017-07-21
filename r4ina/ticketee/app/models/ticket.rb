@@ -2,6 +2,7 @@ class Ticket < ActiveRecord::Base
   belongs_to :project
   belongs_to :author, class_name: "User"
   has_many :attachments, dependent: :destroy
+  has_many :comments, dependent: :destroy
   # This little helper tells your model to accept attachment attributes along with ticket
   # attributes whenever you call methods like new, build, and update. It will also change
   # how fields_for performs in your form, making it reference the attachments association,

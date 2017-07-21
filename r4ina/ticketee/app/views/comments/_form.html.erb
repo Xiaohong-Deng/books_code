@@ -1,0 +1,9 @@
+<header>
+  <h3>New Comment</h3>
+</header>
+
+<!-- the array of models is provided by nesting route in routes.rb -->
+<%= simple_form_for [ticket, comment] do |f| %>
+  <%= f.input :text %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

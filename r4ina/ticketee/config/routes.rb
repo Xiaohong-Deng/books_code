@@ -21,6 +21,11 @@ Rails.application.routes.draw do
   end
 
   resources :attachments, only: [:new, :show]
+  # empty array means ticket is only used in conjunction with comments
+  # no non-nested, standalone tickets url will be recognized
+  resources :tickets, only: [] do
+    resources :comments, only: [:create]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
