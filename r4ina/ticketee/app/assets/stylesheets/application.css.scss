@@ -60,6 +60,10 @@
   }
 }
 
+#tickets li, #states li {
+  padding-bottom: 10px;
+}
+
 ul.actions {
   @extend .list-unstyled;
   @extend .list-inline;
