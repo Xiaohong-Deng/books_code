@@ -5,5 +5,10 @@
 <!-- the array of models is provided by nesting route in routes.rb -->
 <%= simple_form_for [ticket, comment] do |f| %>
   <%= f.input :text %>
+  <!-- you can also use f.select -->
+  <!-- here you tell simple_form that state is an association -->
+  <!-- it'll inspect your model and learn state field is a reference  -->
+  <!-- more interesting thing is it'll prepopulate all of the state from the states table to the box -->
+  <%= f.association :state %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>

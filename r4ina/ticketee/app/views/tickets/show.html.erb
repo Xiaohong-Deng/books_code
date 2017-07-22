@@ -27,6 +27,12 @@
       <!-- time_ago_in_words is a method in ActionView -->
       <td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
     </tr>
+    <% if @ticket.state.present? %>
+      <tr>
+        <th>State:</th>
+        <td><%= render @ticket.state %></td>
+      </tr>
+    <% end %>
   </table>
   <!-- simple_format converts line breaks in description to <br> -->
   <%= simple_format(@ticket.description) %>
