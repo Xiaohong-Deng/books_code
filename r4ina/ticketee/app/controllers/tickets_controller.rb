@@ -25,7 +25,9 @@ class TicketsController < ApplicationController
 
   def show
     authorize @ticket, :show?
-    @comment = @ticket.comments.build
+    # set @comment's state to @ticket's state so when the @comment form
+    # is rendered, the state box's default value will be @ticket's state
+    @comment = @ticket.comments.build(state_id: @ticket.state_id)
   end
 
   def edit
