@@ -2,6 +2,5 @@ Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
 === About ERB file in sublime
-ERB file could be set to either ERB or Rails -> HTML(Rails). If you have Ruby on Rails snippets installed through Package Control, link_to method in ERB file is shown in blue. If you have ROR snippets installed but through manually pulling from Github, link_to method in ERB file is shown in white. This method is in white under all other conditions that I'm aware of.
 
 ERB Snippets package only functions in Rails -> HTML(Rails) format. It has different triggers than ERBAutoComplete, which functions in ERB format.
