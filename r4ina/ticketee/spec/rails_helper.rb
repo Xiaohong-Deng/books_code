@@ -50,6 +50,7 @@ RSpec.configure do |config|
 
   # include module only for feature test
   config.include Warden::Test::Helpers, type: :feature
+  config.include Devise::TestHelpers, type: :controller
   # after each test reset Warden
   config.after(type: :feature) { Warden.test_reset! }
 end
