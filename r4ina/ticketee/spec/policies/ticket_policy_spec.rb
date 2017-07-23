@@ -15,6 +15,7 @@ describe TicketPolicy do
       it { should_not permit_action :create }
       it { should_not permit_action :update }
       it { should_not permit_action :destroy }
+      it { should_not permit_action :change_state }
     end
 
     context 'for viewers of the project' do
@@ -24,6 +25,7 @@ describe TicketPolicy do
       it { should_not permit_action :create }
       it { should_not permit_action :update }
       it { should_not permit_action :destroy }
+      it { should_not permit_action :change_state }
     end
 
     context 'for editors of the project' do
@@ -33,11 +35,12 @@ describe TicketPolicy do
       it { should permit_action :create }
       it { should_not permit_action :update }
       it { should_not permit_action :destroy }
+      it { should_not permit_action :change_state }
 
       context 'when the editor created the ticket' do
         # ticket is called before in editor context
         # here set ticket.author in memory
-        # it call subject using ticket in memory
+        # it calls subject using ticket in memory
         before { ticket.author = user }
 
         it { should permit_action :update }
@@ -51,6 +54,7 @@ describe TicketPolicy do
       it { should permit_action :create }
       it { should permit_action :update }
       it { should permit_action :destroy }
+      it { should permit_action :change_state }
     end
 
     context 'for manager of other projects' do
@@ -62,6 +66,7 @@ describe TicketPolicy do
       it { should_not permit_action :create }
       it { should_not permit_action :update }
       it { should_not permit_action :destroy }
+      it { should_not permit_action :change_state }
     end
 
     context 'for administrators' do
@@ -71,6 +76,7 @@ describe TicketPolicy do
       it { should permit_action :create }
       it { should permit_action :update }
       it { should permit_action :destroy }
+      it { should permit_action :change_state }
     end
   end
 end

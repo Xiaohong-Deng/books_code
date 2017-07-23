@@ -9,6 +9,8 @@
   <!-- here you tell simple_form that state is an association -->
   <!-- it'll inspect your model and learn state field is a reference  -->
   <!-- more interesting thing is it'll prepopulate all of the state from the states table to the box -->
-  <%= f.association :state %>
+  <% if policy(ticket).change_state? %>
+    <%= f.association :state %>
+  <% end %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>

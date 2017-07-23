@@ -45,4 +45,13 @@ RSpec.feature "Users can comment on tickets" do
       expect(page).to have_content("state changed to Open")
     end
   end
+
+  scenario 'but cannot change the state without permission' do
+    assign_role!(user, :editor, project)
+    visit project_ticket_path(project, ticket)
+
+    # have_select checks for select field with a given label, name or id
+    # in this case "State" is the text surrounded by a label
+    expect(page).not_to have_select "State"
+  end
 end
