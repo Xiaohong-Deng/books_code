@@ -5,7 +5,7 @@
 <!-- but :attachment need to specify it's file field -->
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :tag_names, label: "Tags" %>
+  <%= render 'tags/form', f: f %>
   <div id="attachments">
     <h3>Attachments</h3>
     <!-- because f and index are local vars in this view, not instance var -->
