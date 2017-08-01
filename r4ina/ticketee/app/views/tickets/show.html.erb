@@ -41,7 +41,7 @@
         <th>Tags:</th>
         <!-- render looks for a partial named after the class name of the object -->
         <!-- here is tags/_tag.html.erb -->
-        <td><%= render @ticket.tags %></td>
+        <td><%= render @ticket.tags, ticket: @ticket %></td>
       </tr>
     <% end %>
   </table>

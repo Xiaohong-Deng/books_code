@@ -30,6 +30,13 @@ Rails.application.routes.draw do
   # no non-nested, standalone tickets url will be recognized
   resources :tickets, only: [] do
     resources :comments, only: [:create]
+    resources :tags, only: [] do
+      member do
+        # delete method in html corresponds to remove route prefix
+        # remove_ticket_tag_path, also the action name in TagsController
+        delete :remove
+      end
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
