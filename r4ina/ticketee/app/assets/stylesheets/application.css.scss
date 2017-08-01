@@ -49,6 +49,18 @@
   @extend .label;
 }
 
+// .tag should be in ticket.scss
+.tag {
+  @extend .state;
+  @extend .label-info;
+
+  a {
+    &.remove {
+      @extend .fa-close;
+    }
+  }
+}
+
 .page-header {
   position: relative;
   padding-bottom: 0px;

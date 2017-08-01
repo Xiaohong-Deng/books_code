@@ -22,15 +22,26 @@
       <th>Author:</th>
       <td><%= @ticket.author.email %></td>
     </tr>
+
     <tr>
       <th>Created:</th>
       <!-- time_ago_in_words is a method in ActionView -->
       <td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
     </tr>
+
     <% if @ticket.state.present? %>
       <tr>
         <th>State:</th>
         <td><%= render @ticket.state %></td>
+      </tr>
+    <% end %>
+
+    <% if @ticket.tags.any? %>
+      <tr id="tags">
+        <th>Tags:</th>
+        <!-- render looks for a partial named after the class name of the object -->
+        <!-- here is tags/_tag.html.erb -->
+        <td><%= render @ticket.tags %></td>
       </tr>
     <% end %>
   </table>

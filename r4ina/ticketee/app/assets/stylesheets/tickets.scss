@@ -35,3 +35,16 @@ blockquote.comment p {
 #tickets li {
   padding-bottom: 10px;
 }
+
+.tag {
+  margin-right: 10px;
+
+  a {
+    color: white;
+    &.remove {
+      font-family: "FontAwesome";
+      margin-right: 0.5em;
+      text-decoration: none;
+    }
+  }
+}

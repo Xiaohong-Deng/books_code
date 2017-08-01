@@ -13,13 +13,17 @@ RSpec.describe CommentsController, type: :controller do
   context 'a user without permission to set state' do
     before :each do
       assign_role!(user, :editor, project)
+      # to use sign_in from Devise, need to set config to enable
+      # Devise in tests in rails_helper
       sign_in user
     end
 
     it 'cannot transition a state by passing through state_id' do
       post :create, { comment: { text: "Did I hack it??",
-                                state_id: state.id},
+                                state_id: state.id },
                       ticket_id: ticket.id }
+      # reload reloads ticket from database because post
+      # just updated it
       ticket.reload
       expect(ticket.state).to be_nil
     end
