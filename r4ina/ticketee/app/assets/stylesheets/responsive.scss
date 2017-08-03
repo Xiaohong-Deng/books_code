@@ -1,4 +1,6 @@
 $screen-sm-min: 768px;
+$screen-xs-max: 767px;
+$screen-sm-max: 991px;
 
 @media(min-width: $screen-sm-min) {
   header {
@@ -13,5 +15,19 @@ $screen-sm-min: 768px;
     right: 2px;
     max-width: 45%;
     text-align: right;
+  }
+}
+
+@media(max-width: $screen-xs-max) {
+  input#search {
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+  }
+}
+
+@media(max-width, $screen-sm-max) {
+  ul.actions .form-inline {
+    padding-bottom: 5px;
   }
 }

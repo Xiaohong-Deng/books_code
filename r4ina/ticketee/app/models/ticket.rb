@@ -16,6 +16,10 @@ class Ticket < ActiveRecord::Base
 
   before_create :assign_default_state
 
+  searcher do
+    label :tag, from: :tags, field: "name" # label is what you use to search in the search bar
+  end
+
   def tag_names=(names)
     # @tag_names is still useful in invalid submission where
     # tags you input before is populated back to the form field

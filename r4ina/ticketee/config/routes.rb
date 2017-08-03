@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     # accessed through a PATCH request
     resources :users do
       member do
-        patch :archive
+        patch :archive # archive_user_path
       end
     end
   end
@@ -22,7 +22,11 @@ Rails.application.routes.draw do
 
   # nested resources
   resources :projects, only: [:index, :show, :edit, :update] do
-    resources :tickets
+    resources :tickets do
+      collection do
+        get :search # search_project_tickets_path
+      end
+    end
   end
 
   resources :attachments, only: [:new, :show]

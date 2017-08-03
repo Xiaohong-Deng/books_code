@@ -9,6 +9,7 @@
         <%= link_to("Edit Project", edit_project_path(@project), class: "edit") %>
       </li>
     <% end %>
+
     <% admins_only do %>
       <li><%= link_to "Delete Project",
       admin_project_path(@project),
@@ -21,6 +22,14 @@
 <header>
   <h2>Tickets</h2>
   <ul class="actions">
+    <li>
+      <%= form_tag(search_project_tickets_path(@project), method: :get,
+        class: "form-inline") do %>
+        <%= label_tag "search", "Search", class: "sr-only" %>
+        <%= text_field_tag "search", params[:search], class: "form-control" %>
+        <%= submit_tag "Search", class: "btn btn-default" %>
+      <% end %>
+    </li>
     <!-- new Ticket is used to do the sanity check then gets tossed -->
     <!-- policy instantiates an instance using ticket(with @project) and current_user -->
     <!-- asking if current_user has permission to create a ticket which belongs to @project -->
@@ -32,7 +41,7 @@
   </ul>
 </header>
 <ul id="tickets">
-  <% @project.tickets.each do |ticket| %>
+  <% @tickets.each do |ticket| %>
     <li>
       #<%= ticket.id %>
       <%= link_to(ticket.name, [@project, ticket]) %>
