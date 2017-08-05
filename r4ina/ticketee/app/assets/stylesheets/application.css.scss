@@ -49,6 +49,27 @@
   @extend .label;
 }
 
+.watch, .unwatch {
+  @extend .btn;
+  @extend .btn-xs;
+}
+
+.watch {
+  @extend .btn-success;
+
+  &:before {
+    @extend .fa-eye;
+  }
+}
+
+.unwatch {
+  @extend .btn-danger;
+
+  &:before {
+    @extend .fa-eye-slash;
+  }
+}
+
 // .tag should be in ticket.scss
 .tag {
   @extend .state;

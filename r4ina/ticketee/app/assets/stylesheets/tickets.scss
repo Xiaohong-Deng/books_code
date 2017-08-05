@@ -48,3 +48,12 @@ blockquote.comment p {
     }
   }
 }
+
+.watch, .unwatch {
+  font-weight: bold;
+
+  &:before {
+    font-family: "FontAwesome";
+    padding-right: 0.5em;
+  }
+}

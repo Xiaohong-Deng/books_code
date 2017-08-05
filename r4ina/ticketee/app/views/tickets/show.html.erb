@@ -44,6 +44,15 @@
         <td><%= render @ticket.tags, ticket: @ticket %></td>
       </tr>
     <% end %>
+
+    <tr id="watchers">
+      <th>Watchers:</th>
+      <td>
+        <%= toggle_watching_button(@ticket) %><br />
+        <!-- to_sentence turn all emails into one proper sentence -->
+        <%= @ticket.watchers.map(&:email).to_sentence %>
+      </td>
+    </tr>
   </table>
   <!-- simple_format converts line breaks in description to <br> -->
   <%= simple_format(@ticket.description) %>
