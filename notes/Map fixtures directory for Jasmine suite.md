@@ -27,6 +27,6 @@ On [jasmine-jquery-rails github page](https://github.com/travisjeffery/jasmine-j
 
 `jasmine-rails` doesn't support fixtures. It recommend [jasmine-fixture](https://github.com/searls/jasmine-fixture). It provides syntax for loading fixtures that is different from `jasmine-jquery`. So in order to use it you need to rewrite part of your tests first. So much for loading fixtures while testing in CLI using `jasmine-rails`.
 
-After you did all the settings for `jasmine-rails` and `jasmine-jquery-rails`, without removing the two gems, you can add `gem jasmine` and run `rake jasmine:install`. Then either you run `rake jasmine` and visit `localhost:8888` or run `rake jasmine:ci` to run the tests in the CLI, the tests will be run smoothly, all the matchers from `jasmine-jquery` and fixtures.
+After you did all the settings for `jasmine-rails` and `jasmine-jquery-rails`, without removing the two gems, you can add `gem jasmine` and run `rake jasmine:install`. Then either you run `rake jasmine` and visit `localhost:8888` or run `rake jasmine:ci` to run the tests in the CLI, the tests will be run smoothly, regarding all the matchers from `jasmine-jquery` and fixtures.
 
-After poking around in the relavent files, I found that `gem jasmine` load fixtures perfectly fine without the routes hacking, no matter from a browser or CLI. But even in CLI from the message shown I think it relies on `jasmine-jquery-rails` through asset pipeline by firing up a server.
+After poking around in the relavent files, I found that `gem jasmine` load fixtures perfectly fine without the route hacking, no matter from a browser or CLI. But even in CLI from the message shown I think it relies on `jasmine-jquery-rails` through asset pipeline by firing up a server.
