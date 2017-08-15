@@ -1,4 +1,4 @@
-You can use either `gem jasmine` or `gem jasmine-rails` to set up Jasmine framework in your rails apps. In the SaaS book, it uses the latter. `gem jasmine-jquery-rails` is one way to exploit the extra matchers and fixtures loading features from `jasmine-jquery`. It needs jquery as a prerequisite.
+You can use either `gem jasmine` or `gem jasmine-rails` to set up Jasmine framework in your rails apps. In the SaaS book, it uses the latter. `gem jasmine-jquery-rails` is one way to exploit the extra matchers and fixtures loading feature from `jasmine-jquery`. It needs jquery as a prerequisite.
 
 You won't be able to run jasmine tests in the browser smoothly by just following the SaaS book $6.7. At least not by Aug. 2017.
 
