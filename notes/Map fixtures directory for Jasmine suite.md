@@ -1,3 +1,5 @@
+You can use either `gem jasmine` or `gem jasmine-rails` to set up Jasmine framework in your rails apps. In the SaaS book, it uses the latter. `gem jasmine-jquery-rails` is one way to exploit the extra matchers and fixtures loading features from `jasmine-jquery`. It needs jquery as a prerequisite.
+
 You won't be able to run jasmine tests in the browser smoothly by just following the SaaS book $6.7. At least not by Aug. 2017.
 
 First make sure you installed `gem jasmine-rails` and `gem jasmine-jquery-rails`. After `rails g jasmine_rails:install`, add `//= require jasmine-jquery` to `application.js`. Alternatively, `jasmine-jquery-rails` can be included by adding `src_file: - assets/jasmine-jquery.js` to `jasmine.yml`. This would load matchers from `jasmine-jquery`. Both `gem jasmine-rails` and `gem jasmine` depend on it. The default fixtures loading path is `spec/javascripts/fixtures` but testing in the browser is not able to load fixtures. The workaround can be found at [this jasmine-jquery-rails issue](https://github.com/travisjeffery/jasmine-jquery-rails/issues/4)
