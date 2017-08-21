@@ -1,2 +1,0 @@
-class CommentPolicy < TicketPolicy
-end
