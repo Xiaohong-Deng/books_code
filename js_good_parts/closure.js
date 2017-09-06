@@ -18,5 +18,6 @@ fade(document.body);
 // setTimeout() will set the time for step to run and end immediately
 // so step function will be called many times after fade() returns
 // the inner function not only can access the var in the scope but also
-// it can change it and the changed effect carries over to the next call
+// it can change it and the changed var carries over to the next call
 // of step
+// this behavior applies to ruby too
