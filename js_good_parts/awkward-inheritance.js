@@ -15,7 +15,7 @@ var myMammal = new Mammal('Herb the Mammal');
 var name = myMammal.get_name();
 
 console.log(name);
-console.log(myMammal.says); // should say empty string
+console.log(myMammal.says()); // should say empty string
 
 //Cat inherits from Mammal
 var Cat = function (name) {
@@ -44,6 +44,7 @@ var myCat = new Cat('Henrietta');
 var says = myCat.says(); // 'meow'
 var purr = myCat.purr(5); // 'r-r-r-r-r'
 var name = myCat.get_name(); // 'meow Henrietta meow'
+console.log(myCat.name); // it prints 'Henrietta cuz it's not private
 
 // to hide some ugliness
 Function.method('inherits', function (Parent) {
