@@ -1,0 +1,15 @@
+{
+  "name": "cs_acclrt_js_dev",
+  "version": "1.0.0",
+  "description": "coffeescript accelerated javascript development",
+  "main": "checkbooks.js",
+  "dependencies": {
+    "inquirer": "^3.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xiaohong",
+  "license": "MIT"
+}
