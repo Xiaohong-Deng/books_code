@@ -18,3 +18,59 @@ createAccount = (name)->
 checking = createAccount('Checking')
 savings = createAccount('Savings')
 mattress = createAccount('Mattress')
+
+inquirer = require('inquirer')
+
+promptForAccount = ->
+  inquirer.prompt({
+    name: 'account'
+    message: 'Pick an account:'
+    type: 'list'
+    choices: [
+      {name: checking.description(), value: checking}
+      {name: savings.description(), value: savings}
+      {name: mattress.description(), value: mattress}]
+    }).then((answers)->
+      account = answers.account
+      promptForAction(account)
+    )
+
+promptForAction = (account)->
+  inquirer.prompt({
+    name: 'action'
+    message: 'Pick an action'
+    type: 'list'
+    choices: [
+      {name: 'Deposit $ into this account', value: 'deposit'}
+      {name: 'Withdraw $ from this account', value: 'withdraw'}]
+    }).then((answers)->
+      action = answers.action
+      promptForAmount(account, action)
+    )
+
+promptForAmount = (account, action)->
+  inquirer.prompt({
+    name: 'amount'
+    message: 'enter the amount to #action'
+    type: 'input'
+    validate: (input)=>
+      if isNaN(inputToNumber(input))
+        return 'Please enter a numerical amount.'
+      if inputToNumber(input) < 0
+        return 'Please enter a non-negative amount.'
+      true
+    }).then((answers)->
+      amount = inputToNumber(answers.amount)
+      account[action](amount)
+      promptForAccount()
+    )
+
+numeral = require('numeral')
+
+dollarsToString = (dollars)->
+  numeral(dollars).format('$0,0.00')
+
+inputToNumber = (input)->
+  parseFloat input.replace(/[$,]/g, ''), 10
+
+promptForAccount()

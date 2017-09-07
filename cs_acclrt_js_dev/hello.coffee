@@ -5,4 +5,3 @@ rl = require('readline').createInterface
 
 rl.question "To whom am I speaking? ", (audience) ->
   console.log("Hello, #{audience}!")
-

@@ -4,7 +4,8 @@
   "description": "coffeescript accelerated javascript development",
   "main": "checkbooks.js",
   "dependencies": {
-    "inquirer": "^3.2.3"
+    "inquirer": "^3.2.3",
+    "numeral": "^2.0.6"
   },
   "devDependencies": {},
   "scripts": {
