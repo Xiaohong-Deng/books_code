@@ -11,6 +11,15 @@ fire = ({x, y})->
   if x is 5 and y is 7
     console.log 'you sunk my battleship!'
 
+water = (coordinates)->
+  {x, y} = coordinates
+  if x is 5 and y is 7
+    console.log 'you sunk my battleship!'
+
+water({x, y})
+fire({x, y})
+fire(coordinates)
+fire({x:1, y:2})
 # subscript in the bracket will get converted to
 # string by sub.toString so these two are equal
 arr[{toString: -> '1'}]
