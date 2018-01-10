@@ -1,3 +1,4 @@
 cs_acclrt_js_dev/**/*.js
 cs_acclrt_js_dev/**/node_modules/
 cs_acclrt_js_dev/**/bower_components/
+rustina/**/target/
