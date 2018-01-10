@@ -33,3 +33,18 @@
   //
   elem.addEventListener("click", button.click);
 </script>
+<button id="reretest">Click Her!</button>
+<script type="text/javascript">
+  function Button() {
+    this.clicked = false;
+    this.click = function() {
+      this.clicked = true;
+      assert(button.clicked, "The button has been clicked");
+    };
+  }
+  var button = new Button();
+  var elem = document.getElementById("reretest");
+  // bind creates a new function from button.click with one exception
+  // this for the new function is always button
+  elem.addEventListener("click", button.click.bind(button));
+</script>
