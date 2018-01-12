@@ -34,6 +34,8 @@ function Ninja() {
 // two functions are defined through function expression, they both set their
 // own [[Environment]] to the lexical environment they are created, Ninja environment
 var ninja1 = new Ninja();
+// later we call the two function, two lexcial environments are created, immediately the two
+// lexical environments keep track of their outer environments through [[Environment]]
 ninja1.feint();
 
 assert(ninja1.feints === undefined,
